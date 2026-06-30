@@ -2,9 +2,9 @@
 
 N3 is my Jira Service Management lab for running Windows domain support tickets against ADBox.
 
-The lab turns ADBox technical faults into service desk work: incoming requests, queue triage, priority changes, troubleshooting notes, user updates, resolution summaries, and knowledge base handover.
+The lab turns ADBox support scenarios into a working service desk queue: incoming requests, impact checks, priority changes, troubleshooting notes, user updates, resolution summaries, and knowledge base handover.
 
-It is built around a staged support scenario with ten tickets. Some arrive one at a time, some arrive together, and higher-impact incidents interrupt lower-priority work. The goal is to show how I handle mixed service desk work while still proving the technical checks behind each fix.
+It follows a staged ten-ticket support session where new issues arrive while other work is already active. Higher-impact incidents move ahead of lower-priority requests, and each ticket records the technical checks used to reach resolution.
 
 ## ADBox Backend Lab
 
@@ -12,9 +12,9 @@ N3 uses [ADBox](https://github.com/erwinmagielda/adbox) as the technical environ
 
 ADBox provides the Windows Server domain, writable Domain Controller, DNS service, Active Directory users, Windows 10 clients, Group Policy, Remote Desktop, file sharing, account recovery, and PowerShell checks used throughout the tickets.
 
-N3 records the service desk side of that work: what the user reported, how the issue was triaged, what evidence was gathered, what changed in the queue, what was checked on the endpoint or server, and how the ticket was closed.
+N3 records the service desk workflow around that environment: what was reported, how it was triaged, what evidence was gathered, what changed in the queue, what was checked, and how the ticket was closed.
 
-## Lab Setup Reports
+## Lab Reports
 
 Section | Report | Coverage
 --- | --- | ---
@@ -26,11 +26,11 @@ Section | Report | Coverage
 06 | [Live Queue Simulation](lab/06-live-queue-simulation.md) | Ten-ticket scenario with new work, grouped intake, interruptions, completed tickets, and priority changes.
 07 | [Knowledge Base Handover](lab/07-knowledge-base-handover.md) | Repeatable support notes created from resolved tickets and recurring technical patterns.
 
-## Ticket Case Records
+## Ticket Records
 
 Section | Ticket | Scenario
 --- | --- | ---
-001 | [Domain Signin Failure](tickets/N3-001-domain-signin-failure.md) | A user cannot sign in because the workstation is using the wrong DNS path.
+001 | [Domain Sign-In Failure](tickets/N3-001-domain-signin-failure.md) | A user cannot sign in because the workstation is using the wrong DNS path.
 002 | [Shared Folder Denied](tickets/N3-002-shared-folder-denied.md) | A user signs in successfully but cannot access a department share.
 003 | [Account Lockout Loop](tickets/N3-003-account-lockout-loop.md) | A user keeps locking out after a password change because stale credentials are still being used.
 004 | [RDP Access Failure](tickets/N3-004-rdp-access-failure.md) | Remote Desktop support fails because endpoint access settings are incomplete.
@@ -41,7 +41,7 @@ Section | Ticket | Scenario
 009 | [Kerberos Time Drift](tickets/N3-009-kerberos-time-drift.md) | Domain authentication fails because the client clock is out of sync.
 010 | [Authentication Pattern Review](tickets/N3-010-authentication-pattern-review.md) | Related authentication tickets are reviewed as a recurring support pattern.
 
-## Knowledge Base Articles
+## Knowledge Bases
 
 Section | Article | Coverage
 --- | --- | ---
