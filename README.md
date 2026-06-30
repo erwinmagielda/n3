@@ -64,7 +64,7 @@ Folder | Purpose
 
 ## Start Here
 
-Start with [Service Desk Overview](lab/01-service-desk-overview.md), then move through Jira setup, request forms, queues, SLA fields, live ticket handling, and knowledge base handover.
+Start with [01 Service Desk Overview](lab/01-service-desk-overview.md), then move through Jira setup, request forms, queues, SLA fields, live ticket handling, and knowledge base handover.
 
 ## Licence
 
