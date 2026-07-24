@@ -2,74 +2,104 @@
 
 N3 is a Jira Service Management lab for running a staged Windows domain support queue.
 
-The lab covers the service desk workflow around technical support work: request intake, impact checks, urgency, priority changes, queue movement, troubleshooting notes, user updates, resolution summaries, and knowledge base handover.
+The lab covers the service desk workflow around technical support work: request intake, customer records, queue routing, priority changes, SLA handling, customer updates, ticket ownership, troubleshooting records, knowledge base handover, and dashboard review.
 
-The workflow follows a ten-ticket support session where new issues arrive while other work is already active. Higher-impact incidents move ahead of lower-priority requests, and each ticket records the checks used to investigate, resolve, and close the case.
+The workflow follows a ten-ticket support session where new issues arrive while other work is already active. Higher-impact incidents move ahead of lower-priority requests, waiting-on-user work is separated from active work, and each ticket keeps its own record for checks, evidence, resolution notes, and closure.
 
 ## Environment Configuration
 
-N3 uses [ADBox](https://github.com/erwinmagielda/adbox) as the working Windows domain environment behind the Jira tickets. ADBox establishes the network path, server role, domain, client machines, and baseline checks that make the N3 support cases possible.
+N3 uses [ADBox](https://github.com/erwinmagielda/adbox) as the Windows domain environment behind the Jira tickets.
+
+ADBox provides the domain controller, domain users, workstation, DNS path, shared resources, access control, and baseline checks used during the support cases. N3 sits above that environment as the service desk workflow layer.
 
 ## Lab Reports
 
-The lab reports cover the Jira side of N3 before the ticket work starts. They document the service desk setup, request forms, queues, priority model, SLA fields, live queue handling, and knowledge base handover.
-
-| Section | Report                                                       | Coverage                                                                                         |
-| ------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| 01      | [Service Desk Overview](lab/01-service-desk-overview.md)     | Operating model for ticket flow, triage fields, queue behaviour, evidence, and closure.          |
-| 02      | [Jira Cloud Setup](lab/02-jira-cloud-setup.md)               | Jira Cloud Free setup, service project creation, portal access, sidebar layout, and setup proof. |
-| 03      | [Request Type Forms](lab/03-request-type-forms.md)           | Request forms for sign-in, account lockout, DNS, workstation, RDP, file access, and GPO issues. |
-| 04      | [Queue Priority Model](lab/04-queue-priority-model.md)       | Queue structure, impact, urgency, priority order, and reprioritisation during active intake.     |
-| 05      | [SLA Field Setup](lab/05-sla-field-setup.md)                 | Response targets, resolution targets, impact fields, urgency fields, and SLA visibility.         |
-| 06      | [Live Queue Simulation](lab/06-live-queue-simulation.md)     | Ten-ticket queue run with grouped intake, interruptions, completed work, and priority changes.   |
-| 07      | [Knowledge Base Handover](lab/07-knowledge-base-handover.md) | Support notes turned into reusable knowledge base records after ticket resolution.               |
+| Report | Area | Description |
+| ------ | ---- | ----------- |
+| [01 Service Desk Overview](lab/01-service-desk-overview.md) | Operating model | Defines the N3 workflow, ticket lifecycle, priority model, and evidence rules. |
+| [02 Jira Cloud Setup](lab/02-jira-cloud-setup.md) | Jira setup | Creates the Jira Service Management space used for the lab. |
+| [03 Request Type Forms](lab/03-request-type-forms.md) | Request intake | Configures the request types used to raise support tickets. |
+| [04 Queue Priority Model](lab/04-queue-priority-model.md) | Queues | Builds the working queues used for triage, priority handling, and category routing. |
+| [05 SLA Field Setup](lab/05-sla-field-setup.md) | SLAs | Configures first response and completion targets. |
+| [06 Customer Account Records](lab/06-customer-account-records.md) | Customers | Adds Jira customer records matching enabled ADBox users. |
+| [07 Live Queue Simulation](lab/07-live-queue-simulation.md) | Queue run | Runs the staged ten-ticket service desk simulation. |
+| [08 Knowledge Base Handover](lab/08-knowledge-base-handover.md) | KB handover | Documents how resolved ticket patterns become reusable support notes. |
+| [09 Dashboard Status Review](lab/09-dashboard-status-review.md) | Dashboard review | Reviews the Jira dashboard and final service desk state after selected resolutions. |
 
 ## Ticket Records
 
-The ticket records are the main body of the lab. Each one is written as a service desk case with a reported symptom, queue decision, technical checks, evidence, resolution, and closure note.
+Individual ticket records are stored in [`tickets/`](tickets/).
 
-| Section | Ticket                                                                       | Scenario                                                                                       |
-| ------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| 001     | [Domain Sign-In Failure](tickets/N3-001-domain-signin-failure.md)             | A workstation sign-in issue investigated through client DNS and domain controller lookup.       |
-| 002     | [Shared Folder Denied](tickets/N3-002-shared-folder-denied.md)                | A file access issue checked through user context, group membership, and share access.           |
-| 003     | [Account Lockout Loop](tickets/N3-003-account-lockout-loop.md)                | A repeated lockout investigated through account state, saved credentials, and login attempts.   |
-| 004     | [RDP Access Failure](tickets/N3-004-rdp-access-failure.md)                    | A failed remote support path checked through endpoint settings, access rights, and connectivity. |
-| 005     | [Domain DNS Outage](tickets/N3-005-domain-dns-outage.md)                      | A higher-impact DNS issue affecting more than one client and changing the queue order.          |
-| 006     | [Group Policy Missing](tickets/N3-006-group-policy-missing.md)                | A missing policy result checked through OU placement, scope, refresh, and client results.       |
-| 007     | [Network Domain Failure](tickets/N3-007-network-domain-failure.md)            | A workstation with network access but broken domain resource access.                            |
-| 008     | [Secure Channel Broken](tickets/N3-008-secure-channel-broken.md)              | A domain trust issue affecting sign-in on a joined workstation.                                 |
-| 009     | [Kerberos Time Drift](tickets/N3-009-kerberos-time-drift.md)                  | An authentication issue caused by time drift between the client and domain environment.          |
-| 010     | [Authentication Pattern Review](tickets/N3-010-authentication-pattern-review.md) | A review of related authentication tickets, repeated causes, and handover notes.              |
+Each ticket record is used for the technical side of the case:
 
-## Knowledge Base Articles
+| Area | Purpose |
+| ---- | ------- |
+| Reported issue | Captures the user-facing ticket details. |
+| Triage notes | Records priority, queue placement, and ownership. |
+| Technical checks | Documents ADBox/Jira checks performed during investigation. |
+| Evidence | Links screenshots and command output used to support the fix. |
+| Resolution | Records the fix or fulfilment action. |
+| Customer update | Captures the final response back to the requester. |
+| Related KB | Links repeatable fixes to knowledge base notes. |
 
-The knowledge base articles collect checks that repeat across the ticket set. These are written as short handover records for common Windows domain support issues.
+Planned ticket records:
 
-| Section | Article                                                     | Coverage                                                                                  |
-| ------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| 01      | [Sign-In Failure Checks](kb/01-signin-failure-checks.md)    | First checks for affected user, affected device, visible error, DNS path, and account state. |
-| 02      | [Account Lockout Checks](kb/02-account-lockout-checks.md)   | Lockout symptoms, stale credentials, mapped drives, repeated attempts, and closure notes.  |
-| 03      | [Domain DNS Checks](kb/03-domain-dns-checks.md)             | Client DNS settings, domain lookup tests, server reachability, and result confirmation.    |
-| 04      | [RDP Access Checks](kb/04-rdp-access-checks.md)             | Remote Desktop settings, access groups, firewall profile, and session validation.          |
-| 05      | [Share Permission Checks](kb/05-share-permission-checks.md) | Share path, group membership, NTFS permissions, access testing, and evidence capture.      |
-| 06      | [GPO Application Checks](kb/06-gpo-application-checks.md)   | OU placement, linked policy, forced update, result checks, and client confirmation.        |
-| 07      | [Time Sync Checks](kb/07-time-sync-checks.md)               | Client time, domain time, Windows Time service, Kerberos impact, and resync checks.        |
+| Ticket | Summary |
+| ------ | ------- |
+| N3-1 | Cannot sign in on AD-WIN10-01 |
+| N3-2 | Cannot access shared folder from AD-WIN10-01 |
+| N3-3 | Remote Desktop connection fails to AD-WIN10-01 |
+| N3-4 | Account keeps locking after sign-in attempts |
+| N3-5 | Cannot reach AD-SRV01 domain resources from AD-WIN10-01 |
+| N3-6 | Expected desktop policy missing on AD-WIN10-01 |
+| N3-7 | Request access to SupportShare |
+| N3-8 | Cannot sign in after password reset |
+| N3-9 | Domain name lookup fails on AD-WIN10-01 |
+| N3-10 | Request Remote Desktop access for support |
+
+## Knowledge Base
+
+Reusable support notes are stored in [`kb/`](kb/).
+
+Knowledge base articles are created from resolved tickets where the fix pattern is likely to appear again, such as shared folder access, account lockouts, domain resource checks, Remote Desktop access, or DNS lookup problems.
 
 ## Repository Layout
 
-The repository is split by work type. Lab reports cover Jira setup and workflow, ticket records hold the support cases, knowledge base articles hold reusable checks, and screenshots provide evidence for setup and resolution.
+| Path | Purpose |
+| ---- | ------- |
+| `lab/` | Main lab reports. |
+| `tickets/` | Individual ticket records and technical case notes. |
+| `kb/` | Reusable knowledge base handover articles. |
+| `screenshots/lab/` | Evidence screenshots for lab reports. |
+| `screenshots/tickets/` | Evidence screenshots for individual ticket investigations. |
+| `screenshots/kb/` | Evidence screenshots for KB handover where needed. |
 
-| Folder         | Purpose                                                                       |
-| -------------- | ----------------------------------------------------------------------------- |
-| `lab/`         | Jira setup, queue design, SLA setup, workflow reports, and live simulation notes. |
-| `tickets/`     | Individual ticket records with symptoms, priority, checks, evidence, and closure. |
-| `kb/`          | Knowledge base articles created from repeatable checks and resolved ticket patterns. |
-| `screenshots/` | Evidence for Jira setup, ticket progress, technical checks, and completed work. |
+## Current Status
+
+The service desk setup and live queue simulation are in progress.
+
+Completed setup areas include:
+
+| Area | Status |
+| ---- | ------ |
+| Jira service space | Complete |
+| Request types | Complete |
+| Queues | Complete |
+| SLA goals | Complete |
+| Customer account records | Complete |
+| Live queue simulation | Complete |
+| Ticket investigations | In progress |
+| Knowledge base handover | Pending |
+| Dashboard review | Pending |
 
 ## Start Here
 
-Start with [01 Service Desk Overview](lab/01-service-desk-overview.md), then move through Jira setup, request forms, queues, SLA fields, live ticket handling, and knowledge base handover.
+Begin with:
+
+[01 Service Desk Overview](lab/01-service-desk-overview.md)
+
+Then follow the lab reports in order.
 
 ## Licence
 
-This project is provided for learning, documentation, and portfolio demonstration purposes.
+This project is for portfolio and learning use.
