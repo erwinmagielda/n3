@@ -64,6 +64,16 @@ The enabled ADBox user accounts selected for N3 customer records were:
 | Jamie Carter | `jamie.carter` | `jamie.carter@adbox.local` |
 | Sam Taylor   | `sam.taylor`   | `sam.taylor@adbox.local`   |
 
+The command also returned the built-in domain accounts created by Active Directory. These accounts were reviewed but not used as Jira customers because they are system or administrative accounts, not normal requester identities.
+
+| Account         | Type                          | Reason Not Used                                                      |
+| --------------- | ----------------------------- | -------------------------------------------------------------------- |
+| `Administrator` | Built-in domain admin account | Used for administration, not as a normal helpdesk requester.         |
+| `Guest`         | Built-in guest account        | Disabled by default and not suitable for named user ticket records.  |
+| `krbtgt`        | Kerberos service account      | Used by Active Directory for Kerberos ticket signing and validation. |
+
+The three enabled named user accounts were selected because they represent normal domain users in the ADBox environment.
+
 ## Customer Creation
 
 Customer records were added in Jira using the ADBox user principal names.
