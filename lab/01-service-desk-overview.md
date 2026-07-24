@@ -93,8 +93,6 @@ Screenshots are used when they prove setup, queue state, technical checks, or co
 | Fix Confirmation | Successful sign-in, resolved lookup, restored access.     |
 | Closure          | Jira resolution note, linked screenshot, KB handover.     |
 
-This overview page does not use screenshots because no Jira configuration or ticket work has been performed at this stage.
-
 ## Result
 
 The N3 operating model is defined before Jira setup begins.
