@@ -4,7 +4,7 @@ N3 uses Jira customer records that match the enabled ADBox domain users used in 
 
 This stage records the default Jira customer list, checks the live ADBox user accounts, creates matching Jira customer records, and confirms that those customers are available in the requester field before the live ticket run begins.
 
-## Default Customer List
+## Default Customers
 
 Before the ADBox-matched customer records were added, the Jira service space contained the default demo customers.
 
@@ -14,7 +14,7 @@ The starting customer list is shown in Figure 6.1.
 
 *Figure 6.1 - Default Jira customer list before ADBox-matched customers were added.*
 
-## ADBox User Account Check
+## ADBox Users
 
 The live ADBox user accounts were checked from PowerShell before matching Jira customer records were created.
 
@@ -64,7 +64,7 @@ The enabled ADBox user accounts selected for N3 customer records were:
 | Jamie Carter | `jamie.carter` | `jamie.carter@adbox.local` |
 | Sam Taylor   | `sam.taylor`   | `sam.taylor@adbox.local`   |
 
-## Customer Account Creation
+## Customer Creation
 
 Customer records were added in Jira using the ADBox user principal names.
 
@@ -84,7 +84,7 @@ The customer records added were:
 
 These customer records provide realistic requester selection for the ticket simulation. The affected domain account, UPN, and workstation are still recorded inside each ticket so the Jira case stays tied to the ADBox account being tested.
 
-## Customer List Confirmation
+## Customer List
 
 After the records were added, the customer list showed the three ADBox-matched customers alongside the existing default demo records.
 
@@ -94,7 +94,7 @@ Figure 6.4 shows the updated customer list.
 
 *Figure 6.4 - Customer list showing the added ADBox-matched requester records.*
 
-## Requester Selection Check
+## Requester Check
 
 The request form was checked to confirm that the ADBox-matched customers could be selected when raising a service desk request.
 
