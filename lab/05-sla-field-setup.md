@@ -146,4 +146,4 @@ The service desk now has request intake, queues, priority handling, and SLA visi
 
 | Previous                                               | Current            | Next                                                    |
 | ------------------------------------------------------ | ------------------ | ------------------------------------------------------- |
-| [04 Queue Priority Model](04-queue-priority-model.md)  | 05 SLA Field Setup | [06 Live Queue Simulation](06-live-queue-simulation.md) |
+| [04 Queue Priority Model](04-queue-priority-model.md)  | 05 SLA Field Setup | [06 Customer Account Records](06-customer-account-records.md) |
