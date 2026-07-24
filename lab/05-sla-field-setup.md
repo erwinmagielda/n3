@@ -16,7 +16,7 @@ This stage records the default SLA state, the configured first response target, 
 | 06   | SLA Display              | Keep the due date centric SLA display.                          |
 | 07   | Final SLA View           | Confirm both SLA goals are active.                              |
 
-## Default SLA View
+## Default SLA
 
 The service space opened with one existing SLA goal. `Time to done` already had one goal, while `Time to first response` had no goals configured.
 
@@ -96,15 +96,28 @@ Figure 5.5 shows the completion timer conditions.
 
 ## SLA Display
 
-The SLA display was left as due date centric. This keeps SLA information readable in the work item and queue view by showing target due times and overdue states.
+Both SLA goals use the `Sample 9-5 Calendar`.
 
-The selected display format is shown in Figure 5.6.
+The calendar gives the SLA targets a working-hours context. A `4h` target means four counted working hours inside the selected calendar, while a `16h` target means sixteen counted working hours across that same support window.
+
+The SLA timers are controlled by three parts.
+
+| SLA Part         | Use                                                |
+| ---------------- | -------------------------------------------------- |
+| Calendar         | Defines the working time used for SLA counting.    |
+| Start condition  | Defines when the SLA clock begins.                 |
+| Pause condition  | Defines when the SLA clock stops temporarily.      |
+| Finish condition | Defines when the SLA clock is completed.           |
+
+The display format was left as due date centric. This keeps SLA information readable in the work item and queue view by showing target due times and overdue states.
+
+Figure 5.6 shows the SLA time display configuration.
 
 ![Figure 5.6 - SLA time configuration](../screenshots/lab/05-sla-field-setup/06-sla-time-configuration.png)
 
 *Figure 5.6 - Due date centric SLA display used for ticket and queue visibility.*
 
-## Final SLA View
+## Final SLA
 
 After configuration, the SLA overview showed two active goals in the space: `Time to done` and `Time to first response`.
 
