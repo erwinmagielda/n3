@@ -33,7 +33,7 @@ A team-managed space keeps the N3 configuration contained inside this project, w
 
 *Figure 2.2 - Team-managed selected for the N3 service space.*
 
-## Service Space Details
+## Space Details
 
 The create screen was completed with the N3 name, project key, IT team type, open channel access, and the selected template (Figure 2.3).
 
@@ -64,7 +64,7 @@ No request types, queues, SLA fields, or ticket scenarios were configured at thi
 
 ## Result
 
-The N3 Jira Service Management space was created and confirmed. The next stage configures the request types and forms used for ticket intake.
+The `N3 Service Desk` space was created and opened successfully in Jira Service Management. Request types, queues, SLA fields, and ticket handling continue in the following reports.
 
 ## Navigation
 
