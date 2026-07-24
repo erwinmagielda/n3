@@ -74,7 +74,7 @@ Priority is used to decide which active ticket should be reviewed first when sev
 
 The `High priority active` queue is not tied to a single request type. Any unresolved ticket marked `Highest` or `High` appears there, which keeps blocking work visible regardless of category.
 
-## Final Queue Order
+## Final Queue
 
 The final queue order places triage first, urgent work second, waiting work third, category queues after that, and fallback views at the bottom.
 
