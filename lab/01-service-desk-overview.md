@@ -1,18 +1,18 @@
 # Service Desk Overview
 
-N3 runs ADBox support work through a Jira Service Management queue.
+N3 runs Windows domain support work through a Jira Service Management queue.
 
-This page sets the operating model before Jira is configured. It defines how tickets enter the queue, how priority is assigned, how work moves between statuses, and how evidence is handled across the lab.
+This page defines the operating model used before Jira is configured. It covers how requests become tickets, how priority is decided, how work moves through the queue, and how evidence is recorded.
 
 ## Working Model
 
-ADBox provides the Windows domain environment. N3 controls the service desk workflow around that environment.
+ADBox is the configured domain backbone. N3 is the support layer that records user reports, triage decisions, queue movement, technical checks, fixes, and handover.
 
-| Layer    | Role                                                           |
-| -------- | -------------------------------------------------------------- |
-| ADBox    | Windows domain, clients, DNS, AD users, GPO, RDP, and shares.  |
-| N3       | Ticket intake, triage, priority, queue control, notes, and KB. |
-| Evidence | Screenshots of Jira state, command output, fixes, and results. |
+| Layer    | Role                                                              |
+| -------- | ----------------------------------------------------------------- |
+| ADBox    | Prepared Windows domain environment used for testing and checks.  |
+| N3       | Jira queue, triage, ticket notes, resolution, and KB handover.    |
+| Evidence | Screenshots that prove Jira state, technical checks, and results. |
 
 ## Ticket Lifecycle
 
