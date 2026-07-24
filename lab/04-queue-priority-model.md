@@ -63,19 +63,21 @@ Each queue uses a simple filter set. The goal is to make the queue useful during
 
 ## Queue Columns
 
-The queue columns were kept compact so each working view shows the fields needed for first handling and follow-up.
+The queue columns were left in Jira's default layout.
 
-| Column      | Use                                                |
-| ----------- | -------------------------------------------------- |
-| Issue Type  | Shows the request path used to raise the ticket.   |
-| Key         | Provides the Jira reference used in notes.         |
-| Summary     | Shows the short user-facing issue title.           |
-| Reporter    | Identifies who raised the request.                 |
-| Assignee    | Shows whether the ticket has been picked up.       |
-| Status      | Shows the current workflow position.               |
-| Created     | Supports first-in review during triage.            |
+The default columns were enough for this stage because the queue model focuses on filtered working views, not custom list design. The queue still shows the ticket reference, request type, summary, reporter, assignee, status, and creation time.
 
-Priority handling is controlled through the `High priority active` queue and the queue order. This keeps the working views readable while still separating urgent tickets from normal category queues.
+| Column     | Use                                           |
+| ---------- | --------------------------------------------- |
+| Issue Type | Shows the request path used for the ticket.   |
+| Key        | Provides the Jira ticket reference.           |
+| Summary    | Shows the short user-facing issue title.      |
+| Reporter   | Identifies who raised the request.            |
+| Assignee   | Shows whether the ticket has been picked up.  |
+| Status     | Shows the current workflow position.          |
+| Created    | Supports first-in review during triage.       |
+
+Priority was handled through the `High priority active` queue instead of changing the column layout. This keeps the queue setup close to Jira's default view while still separating urgent unresolved work from normal category queues.
 
 ## Priority Handling
 
