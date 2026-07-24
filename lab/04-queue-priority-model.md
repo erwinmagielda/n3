@@ -61,6 +61,22 @@ Each queue uses a simple filter set. The goal is to make the queue useful during
 
 *Figure 4.2 - Identity and access queue configured with unresolved work and selected request types.*
 
+## Queue Columns
+
+The queue columns were kept compact so each working view shows the fields needed for first handling and follow-up.
+
+| Column      | Use                                                |
+| ----------- | -------------------------------------------------- |
+| Issue Type  | Shows the request path used to raise the ticket.   |
+| Key         | Provides the Jira reference used in notes.         |
+| Summary     | Shows the short user-facing issue title.           |
+| Reporter    | Identifies who raised the request.                 |
+| Assignee    | Shows whether the ticket has been picked up.       |
+| Status      | Shows the current workflow position.               |
+| Created     | Supports first-in review during triage.            |
+
+Priority handling is controlled through the `High priority active` queue and the queue order. This keeps the working views readable while still separating urgent tickets from normal category queues.
+
 ## Priority Handling
 
 Priority is used to decide which active ticket should be reviewed first when several requests are open.
