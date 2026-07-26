@@ -33,13 +33,13 @@ Figure 1 shows the ticket details captured from Jira.
 
 The ticket was treated as a high priority user access issue because the affected user could not sign in to the assigned workstation.
 
-| Area      | Value                                                      |
-| --------- | ---------------------------------------------------------- |
-| Impact    | User unable to access `AD-WIN10-01` with domain account.   |
-| Urgency   | High, workstation sign-in was blocked.                     |
-| Priority  | High                                                       |
-| Queue     | Identity and access                                        |
-| Owner     | Erwin Magielda                                             |
+| Area     | Value                                                     |
+| -------- | --------------------------------------------------------- |
+| Impact   | User unable to access `AD-WIN10-01` with domain account.  |
+| Urgency  | High, workstation sign-in was blocked.                    |
+| Priority | High                                                      |
+| Queue    | Identity and access                                       |
+| Owner    | Erwin Magielda                                            |
 
 ## Investigation
 
@@ -63,12 +63,6 @@ Figure 3 shows the account properties view.
 
 *Figure 3 - Alex Morgan account properties showing the disabled account state.*
 
-Figure 4 shows the disabled account option more closely.
-
-![Figure 4 - Account disabled tick](../screenshots/tickets/N3-1-cannot-sign-in/04-account-disabled-tick.png)
-
-*Figure 4 - `Account is disabled` selected for `alex.morgan`.*
-
 PowerShell was also used to confirm the same account state from the command line.
 
 ```powershell
@@ -87,65 +81,71 @@ Select-Object Name,SamAccountName,Enabled
 
 The command returned `Enabled = False`, confirming that the account was disabled in both ADUC and PowerShell.
 
-Figure 5 shows the PowerShell disabled-state check.
+Figure 4 shows the PowerShell disabled-state check.
 
-![Figure 5 - Account disabled powershell](../screenshots/tickets/N3-1-cannot-sign-in/06-account-disabled-powershell.png)
+![Figure 4 - Account disabled powershell](../screenshots/tickets/N3-1-cannot-sign-in/06-account-disabled-powershell.png)
 
-*Figure 5 - PowerShell confirming that `alex.morgan` was disabled.*
+*Figure 4 - PowerShell confirming that `alex.morgan` was disabled.*
 
 ## Finding
 
 The issue was caused by the `alex.morgan` Active Directory account being disabled.
 
-| Check               | Result                              |
-| ------------------- | ----------------------------------- |
-| Client sign-in      | Disabled-account message displayed. |
-| ADUC Account tab    | `Account is disabled` selected.     |
-| PowerShell check    | `Enabled = False`.                  |
-| Root cause          | Disabled AD account.                |
+| Check            | Result                              |
+| ---------------- | ----------------------------------- |
+| Client sign-in   | Disabled-account message displayed. |
+| ADUC Account tab | `Account is disabled` selected.     |
+| PowerShell check | `Enabled = False`.                  |
+| Root cause       | Disabled AD account.                |
 
 ## Resolution Applied
 
-The account was enabled from Active Directory Users and Computers using the right-click `Enable Account` option.
+The account was enabled from Active Directory Users and Computers by clearing the `Account is disabled` option on the Account tab.
 
-Figure 6 shows the GUI enablement action.
+This was the primary support action used for the ticket because the disabled state had already been confirmed from the same user properties window.
+
+Figure 5 shows the account option after `Account is disabled` was cleared.
+
+![Figure 5 - Account disabled tick](../screenshots/tickets/N3-1-cannot-sign-in/04-account-disabled-tick.png)
+
+*Figure 5 - `Account is disabled` cleared for `alex.morgan`.*
+
+## Alternative Methods
+
+The same disabled-account issue could also be resolved through other valid administrative methods.
+
+| Method            | Action                                     | Use                                                      |
+| ----------------- | ------------------------------------------ | -------------------------------------------------------- |
+| ADUC Account tab  | Untick `Account is disabled`.              | Primary method used in this ticket.                      |
+| ADUC context menu | Right-click user -> `Enable Account`.      | Fast GUI method from the user object or search result.   |
+| PowerShell        | `Enable-ADAccount -Identity alex.morgan`.  | Repeatable command-line method for administrative fixes. |
+
+Figure 6 shows the ADUC context-menu method available for the same account state.
 
 ![Figure 6 - Enable account option](../screenshots/tickets/N3-1-cannot-sign-in/05-enable-account-option.png)
 
-*Figure 6 - Enable Account option available for Alex Morgan in ADUC.*
+*Figure 6 - Alternative ADUC context-menu method for enabling Alex Morgan.*
 
-PowerShell was also documented as an equivalent command-line method for enabling the account.
+PowerShell was also documented as an equivalent command-line method.
 
 ```powershell
 Enable-ADAccount -Identity alex.morgan
 ```
 
-| Part                           | Purpose                              |
-| ------------------------------ | ------------------------------------ |
-| `Enable-ADAccount`             | Enables an Active Directory account. |
-| `-Identity alex.morgan`        | Targets the affected ADBox user.     |
+| Part                    | Purpose                              |
+| ----------------------- | ------------------------------------ |
+| `Enable-ADAccount`      | Enables an Active Directory account. |
+| `-Identity alex.morgan` | Targets the affected ADBox user.     |
 
 Figure 7 shows the PowerShell enablement command.
 
 ![Figure 7 - Enable account powershell](../screenshots/tickets/N3-1-cannot-sign-in/07-enable-account-powershell.png)
 
-*Figure 7 - PowerShell enablement command for `alex.morgan`.*
-
-## Alternative Admin Methods
-
-The disabled account could be enabled through several valid administrative methods.
-
-| Method            | Action                                      | Use                                                       |
-| ----------------- | ------------------------------------------- | --------------------------------------------------------- |
-| ADUC Account tab  | Untick `Account is disabled`.               | Useful when already reviewing the user properties.        |
-| ADUC context menu | Right-click user -> `Enable Account`.       | Fast GUI method from the user object or search result.    |
-| PowerShell        | `Enable-ADAccount -Identity alex.morgan`.   | Repeatable command-line method for administrative fixes.  |
-
-The GUI context-menu method was used as the primary support action for this ticket. PowerShell was used to confirm the account state and document the equivalent command-line method.
+*Figure 7 - Alternative PowerShell method for enabling `alex.morgan`.*
 
 ## PowerShell Validation
 
-The account state was checked again after enablement.
+The account state was checked again after the ADUC fix was applied.
 
 ```powershell
 Get-ADUser alex.morgan -Properties Enabled |
@@ -158,7 +158,7 @@ Figure 8 shows the post-fix PowerShell validation.
 
 ![Figure 8 - Account enabled powershell](../screenshots/tickets/N3-1-cannot-sign-in/08-account-enabled-powershell.png)
 
-*Figure 8 - PowerShell confirming that `alex.morgan` was enabled after the fix.*
+*Figure 8 - PowerShell confirming that `alex.morgan` was enabled after the ADUC fix.*
 
 ## Client Validation
 
@@ -204,7 +204,7 @@ Figure 11 shows the customer reply.
 
 ## Closure
 
-The ticket was moved to `Done` after the disabled account was enabled, PowerShell confirmed the account state, sign-in was validated from `AD-WIN10-01`, and the customer was updated.
+The ticket was moved to `Done` after the disabled account option was cleared in ADUC, PowerShell confirmed the account state, sign-in was validated from `AD-WIN10-01`, and the customer was updated.
 
 Figure 12 shows the final Jira state.
 
@@ -216,4 +216,4 @@ Figure 12 shows the final Jira state.
 
 N3-1 was resolved by identifying that `ADBOX\alex.morgan` was disabled in Active Directory.
 
-The disabled state was confirmed through both ADUC and PowerShell. The account was enabled through the ADUC context menu, PowerShell confirmed that the account state changed to `Enabled = True`, sign-in was validated from `AD-WIN10-01`, the Jira ticket was updated internally, the customer was informed, and the ticket was closed.
+The disabled state was confirmed through both ADUC and PowerShell. The account was enabled by clearing `Account is disabled` in the ADUC Account tab. The ADUC context-menu option and PowerShell command were documented as alternative administrative methods. PowerShell confirmed that the account state changed to `Enabled = True`, sign-in was validated from `AD-WIN10-01`, the Jira ticket was updated internally, the customer was informed, and the ticket was closed.
