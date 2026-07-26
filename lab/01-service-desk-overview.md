@@ -119,7 +119,7 @@ The main queue views keep active work visible by triage state, priority, and req
 | All open               | Fallback view for active work.                                   |
 | Assigned to me         | Personal working view for assigned tickets.                      |
 
-## Ticket Simulation Pattern
+## Simulation Pattern
 
 The ticket set runs as one service desk session. New work arrives while other tickets are already active, and higher-impact issues move ahead of lower-priority work.
 
@@ -165,18 +165,6 @@ Screenshots are used when they prove setup, queue state, technical checks, fixes
 | Closure             | Done state, SLA completion, resolved queue state.           |
 
 Lab reports use wider workflow screenshots because they document how N3 was built. Ticket records use focused evidence screenshots because they document individual support cases.
-
-## Screenshot Naming
-
-Ticket screenshots use a number followed by three descriptive words separated by hyphens.
-
-| Pattern                         | Example                          |
-| ------------------------------- | -------------------------------- |
-| `NN-word-word-word.png`         | `02-user-signin-failure.png`     |
-| `NN-word-word-word.png`         | `05-deny-connections-1.png`      |
-| `NN-word-word-word.png`         | `10-ticket-internal-note.png`    |
-
-The number preserves evidence order. The three-word label keeps screenshot names readable and consistent across ticket folders.
 
 ## Result
 
