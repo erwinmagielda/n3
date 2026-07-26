@@ -83,7 +83,7 @@ The command returned `Enabled = False`, confirming that the account was disabled
 
 Figure 4 shows the PowerShell disabled-state check.
 
-![Figure 4 - Account disabled powershell](../screenshots/tickets/N3-1-cannot-sign-in/06-account-disabled-powershell.png)
+![Figure 4 - Account disabled powershell](../screenshots/tickets/N3-1-cannot-sign-in/04-account-disabled-powershell.png)
 
 *Figure 4 - PowerShell confirming that `alex.morgan` was disabled.*
 
@@ -106,7 +106,7 @@ This was the primary support action used for the ticket because the disabled sta
 
 Figure 5 shows the account option after `Account is disabled` was cleared.
 
-![Figure 5 - Account disabled tick](../screenshots/tickets/N3-1-cannot-sign-in/04-account-disabled-tick.png)
+![Figure 5 - Account disabled tick](../screenshots/tickets/N3-1-cannot-sign-in/05-account-disabled-tick.png)
 
 *Figure 5 - `Account is disabled` cleared for `alex.morgan`.*
 
@@ -123,7 +123,7 @@ The command returned `Enabled = True`, confirming that the account had been enab
 
 Figure 8 shows the post-fix PowerShell validation.
 
-![Figure 8 - Account enabled powershell](../screenshots/tickets/N3-1-cannot-sign-in/08-account-enabled-powershell.png)
+![Figure 8 - Account enabled powershell](../screenshots/tickets/N3-1-cannot-sign-in/06-account-enabled-powershell.png)
 
 *Figure 8 - PowerShell confirming that `alex.morgan` was enabled after the ADUC fix.*
 
@@ -147,7 +147,7 @@ ipconfig /all
 
 Figure 9 shows the client-side validation.
 
-![Figure 9 - Client signin confirmed](../screenshots/tickets/N3-1-cannot-sign-in/09-client-signin-confirmed.png)
+![Figure 9 - Client signin confirmed](../screenshots/tickets/N3-1-cannot-sign-in/07-client-signin-confirmed.png)
 
 *Figure 9 - AD-WIN10-01 signed in as `adbox\alex.morgan` after the account was enabled.*
 
@@ -163,7 +163,7 @@ The same disabled-account issue could also be resolved through other valid admin
 
 Figure 6 shows the ADUC context-menu method available for the same account state.
 
-![Figure 6 - Enable account option](../screenshots/tickets/N3-1-cannot-sign-in/05-enable-account-option.png)
+![Figure 6 - Enable account option](../screenshots/tickets/N3-1-cannot-sign-in/08-enable-account-option.png)
 
 *Figure 6 - Alternative ADUC context-menu method for enabling Alex Morgan.*
 
@@ -180,9 +180,9 @@ Enable-ADAccount -Identity alex.morgan
 
 Figure 7 shows the PowerShell enablement command.
 
-![Figure 7 - Enable account powershell](../screenshots/tickets/N3-1-cannot-sign-in/07-enable-account-powershell.png)
+![Figure 7 - Enable account powershell](../screenshots/tickets/N3-1-cannot-sign-in/09-enable-account-powershell.png)
 
-*Figure 7 - Alternative PowerShell method for enabling `alex.morgan`.*
+*Figure 7 - Alternative PowerShell method for enabling `alex.morgan`.
 
 ## Jira Notes
 
