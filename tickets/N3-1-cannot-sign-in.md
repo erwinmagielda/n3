@@ -21,7 +21,7 @@ This ticket was raised through the N3 Jira Service Management portal as part of 
 
 Alex Morgan reported that they could not sign in to `AD-WIN10-01` with their domain account.
 
-The Jira ticket recorded the affected user, ADBox username, UPN, workstation, reported error message, and whether other access had been confirmed.
+The Jira ticket recorded the affected user, ADBox username, UPN, workstation, reported error message, start time, and user notes.
 
 Figure 1 shows the ticket details captured from Jira.
 
@@ -121,11 +121,11 @@ Select-Object Name,SamAccountName,Enabled
 
 The command returned `Enabled = True`, confirming that the account had been enabled.
 
-Figure 8 shows the post-fix PowerShell validation.
+Figure 6 shows the post-fix PowerShell validation.
 
-![Figure 8 - Account enabled powershell](../screenshots/tickets/N3-1-cannot-sign-in/06-account-enabled-powershell.png)
+![Figure 6 - Account enabled powershell](../screenshots/tickets/N3-1-cannot-sign-in/06-account-enabled-powershell.png)
 
-*Figure 8 - PowerShell confirming that `alex.morgan` was enabled after the ADUC fix.*
+*Figure 6 - PowerShell confirming that `alex.morgan` was enabled after the ADUC fix.*
 
 ## Client Validation
 
@@ -145,11 +145,11 @@ ipconfig /all
 | `hostname` | `AD-WIN10-01`       |
 | DNS suffix | `adbox.local`       |
 
-Figure 9 shows the client-side validation.
+Figure 7 shows the client-side validation.
 
-![Figure 9 - Client signin confirmed](../screenshots/tickets/N3-1-cannot-sign-in/07-client-signin-confirmed.png)
+![Figure 7- Client signin confirmed](../screenshots/tickets/N3-1-cannot-sign-in/07-client-signin-confirmed.png)
 
-*Figure 9 - AD-WIN10-01 signed in as `adbox\alex.morgan` after the account was enabled.*
+*Figure 7 - AD-WIN10-01 signed in as `adbox\alex.morgan` after the account was enabled.*
 
 ## Alternative Methods
 
@@ -161,11 +161,11 @@ The same disabled-account issue could also be resolved through other valid admin
 | ADUC context menu | Right-click user -> `Enable Account`.      | Fast GUI method from the user object or search result.   |
 | PowerShell        | `Enable-ADAccount -Identity alex.morgan`.  | Repeatable command-line method for administrative fixes. |
 
-Figure 6 shows the ADUC context-menu method available for the same account state.
+Figure 8 shows the ADUC context-menu method available for the same account state.
 
-![Figure 6 - Enable account option](../screenshots/tickets/N3-1-cannot-sign-in/08-enable-account-option.png)
+![Figure 8 - Enable account option](../screenshots/tickets/N3-1-cannot-sign-in/08-enable-account-option.png)
 
-*Figure 6 - Alternative ADUC context-menu method for enabling Alex Morgan.*
+*Figure 8 - Alternative ADUC context-menu method for enabling Alex Morgan.*
 
 PowerShell was also documented as an equivalent command-line method.
 
@@ -178,11 +178,11 @@ Enable-ADAccount -Identity alex.morgan
 | `Enable-ADAccount`      | Enables an Active Directory account. |
 | `-Identity alex.morgan` | Targets the affected ADBox user.     |
 
-Figure 7 shows the PowerShell enablement command.
+Figure 9 shows the PowerShell enablement command.
 
-![Figure 7 - Enable account powershell](../screenshots/tickets/N3-1-cannot-sign-in/09-enable-account-powershell.png)
+![Figure 9 - Enable account powershell](../screenshots/tickets/N3-1-cannot-sign-in/09-enable-account-powershell.png)
 
-*Figure 7 - Alternative PowerShell method for enabling `alex.morgan`.
+*Figure 9 - Alternative PowerShell method for enabling `alex.morgan`.*
 
 ## Jira Notes
 
