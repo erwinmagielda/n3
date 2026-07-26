@@ -2,30 +2,26 @@
 
 N3 is a Jira Service Management lab for running a staged Windows domain support queue.
 
-The lab covers the service desk workflow around technical support work: request intake, customer records, queue routing, priority changes, SLA handling, customer updates, ticket ownership, troubleshooting records, knowledge base handover, and dashboard review.
+The lab follows a ten-ticket support session covering request intake, customer records, queue routing, priority changes, SLA handling, customer updates, ticket ownership, troubleshooting records, knowledge base handover, and dashboard review.
 
-The workflow follows a ten-ticket support session where new issues arrive while other work is already active. Higher-impact incidents move ahead of lower-priority requests, waiting-on-user work is separated from active work, and each ticket keeps its own record for checks, evidence, resolution notes, customer updates, and closure.
+Technical support work is tested against [ADBox](https://github.com/erwinmagielda/adbox). Jira Service Management records the service desk layer around those issues.
 
 ## Environment Configuration
 
 N3 uses [ADBox](https://github.com/erwinmagielda/adbox) as the Windows domain environment behind the Jira tickets.
 
-[ADBox](https://github.com/erwinmagielda/adbox) provides the domain controller, domain users, workstation, DNS path, shared resources, access control, Group Policy, Remote Desktop configuration, and baseline checks used during the support cases. N3 sits above that environment as the Jira service desk workflow layer.
-
-The table below separates the technical environment from the service desk layer so the repository structure is clear before the lab reports begin.
+[ADBox](https://github.com/erwinmagielda/adbox) provides the domain controller, domain users, workstation, DNS path, shared resources, access control, Group Policy, Remote Desktop configuration, and baseline checks used during the support cases.
 
 | Layer                                           | Role                                                                                      |
 | ----------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | [ADBox](https://github.com/erwinmagielda/adbox) | Windows domain environment used for accounts, DNS, shares, policies, and endpoint checks. |
 | Jira Service Management                         | Portal intake, queues, SLAs, customer records, customer replies, and ticket ownership.    |
-| N3 ticket records                               | Case documentation for triage, investigation, fix, validation, and closure.               |
-| Knowledge base                                  | Reusable support notes created from repeatable ticket patterns.                           |
+| N3 Ticket Records                               | Case documentation for triage, investigation, fix, validation, and closure.               |
+| Knowledge Base                                  | Reusable support notes created from repeatable ticket patterns.                           |
 
 ## Lab Reports
 
-The lab reports document how the N3 service desk was built before and during the ticket run. They cover the Jira space, request forms, queues, SLA fields, customer records, live queue simulation, knowledge base handover, and final dashboard review.
-
-The table below lists the report sequence, the area each report covers, and the purpose of each file.
+The lab reports document the N3 build path from service desk design to final review.
 
 | Report                                                            | Area             | Description                                                                                             |
 | ----------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------- |
@@ -43,22 +39,7 @@ The table below lists the report sequence, the area each report covers, and the 
 
 Individual ticket records are stored in [`tickets/`](tickets/).
 
-Each ticket record is used for the technical side of the case. The Jira portal description records the user-facing report, while the ticket record documents triage, investigation, evidence, fix, validation, customer communication, and closure.
-
-The table below explains what each ticket record section is used for.
-
-| Area             | Purpose                                                                                                   |
-| ---------------- | --------------------------------------------------------------------------------------------------------- |
-| Reported Issue   | Captures the user-facing ticket details submitted through Jira.                                           |
-| Triage Notes     | Records priority, queue placement, ownership, and handling decision.                                      |
-| Technical Checks | Documents [ADBox](https://github.com/erwinmagielda/adbox) and Jira checks performed during investigation. |
-| Evidence         | Links screenshots and command output used to support the fix.                                             |
-| Resolution       | Records the fix or fulfilment action applied to the issue.                                                |
-| Validation       | Confirms the result with PowerShell, client-side checks, or resource access.                              |
-| Customer Update  | Captures the final response back to the requester.                                                        |
-| Related KB       | Links repeatable fixes to knowledge base notes where useful.                                              |
-
-The table below lists the ten-ticket support session. Linked entries point to completed ticket records in the repository.
+Each record documents one support case from Jira intake through investigation, fix, validation, customer update, and closure.
 
 | Ticket | Summary                                                                                     |
 | ------ | ------------------------------------------------------------------------------------------- |
@@ -77,23 +58,19 @@ The table below lists the ten-ticket support session. Linked entries point to co
 
 Reusable support notes are stored in [`kb/`](kb/).
 
-Knowledge base articles are created from resolved tickets where the fix pattern is likely to appear again, such as shared folder access, account lockouts, domain resource checks, Remote Desktop access, DNS lookup problems, password reset follow-up, and Group Policy checks.
+Knowledge base articles are created from resolved ticket patterns such as account lockouts, shared folder access or password reset follow-up, and Group Policy checks.
 
-The table below groups the knowledge base handover areas by the ticket patterns they come from.
-
-| KB Area                  | Related Tickets   | Purpose                                                                                                                  |
-| ------------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Account sign-in issues   | N3-1, N3-4, N3-8  | Disabled accounts, lockouts, and password reset follow-up.                                                               |
-| Shared folder access     | N3-2, N3-7        | Group membership checks and shared folder access validation.                                                             |
-| Remote Desktop support   | N3-3, N3-10       | Workstation Remote Desktop availability and user access checks.                                                          |
-| DNS and domain resources | N3-5, N3-9        | Client DNS checks, internal name resolution, and [ADBox](https://github.com/erwinmagielda/adbox) domain resource access. |
-| Group Policy checks      | N3-6              | Expected policy application, refresh checks, and workstation validation.                                                 |
+| KB Area                  | Related Tickets   |
+| ------------------------ | ----------------- |
+| Account sign-in issues   | N3-1, N3-4, N3-8  |
+| Shared folder access     | N3-2, N3-7        |
+| Remote Desktop support   | N3-3, N3-10       |
+| DNS and domain resources | N3-5, N3-9        |
+| Group Policy checks      | N3-6              |
 
 ## Repository Layout
 
-The repository separates lab build reports, ticket case records, knowledge base notes, and screenshot evidence.
-
-The table below shows where each type of N3 material is stored.
+The repository separates reports, ticket records, knowledge base notes, and evidence.
 
 | Path                   | Purpose                                                    |
 | ---------------------- | ---------------------------------------------------------- |
