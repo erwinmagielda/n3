@@ -32,30 +32,30 @@ Individual ticket records are stored in [`tickets/`](tickets/).
 
 Each ticket record is used for the technical side of the case:
 
-| Area | Purpose |
-| ---- | ------- |
-| Reported issue | Captures the user-facing ticket details. |
-| Triage notes | Records priority, queue placement, and ownership. |
-| Technical checks | Documents ADBox/Jira checks performed during investigation. |
-| Evidence | Links screenshots and command output used to support the fix. |
-| Resolution | Records the fix or fulfilment action. |
-| Customer update | Captures the final response back to the requester. |
-| Related KB | Links repeatable fixes to knowledge base notes. |
+| Area             | Purpose                                                      |
+| ---------------- | ------------------------------------------------------------ |
+| Reported Issue   | Captures the user-facing ticket details.                     |
+| Triage Notes     | Records priority, queue placement, and ownership.            |
+| Technical Checks | Documents ADBox/Jira checks performed during investigation.  |
+| Evidence         | Links screenshots and command output used to support the fix.|
+| Resolution       | Records the fix or fulfilment action.                        |
+| Customer Update  | Captures the final response back to the requester.           |
+| Related KB       | Links repeatable fixes to knowledge base notes.              |
 
 Planned ticket records:
 
-| Ticket | Summary |
-| ------ | ------- |
-| N3-1 | Cannot sign in on AD-WIN10-01 |
-| N3-2 | Cannot access shared folder from AD-WIN10-01 |
-| N3-3 | Remote Desktop connection fails to AD-WIN10-01 |
-| N3-4 | Account keeps locking after sign-in attempts |
-| N3-5 | Cannot reach AD-SRV01 domain resources from AD-WIN10-01 |
-| N3-6 | Expected desktop policy missing on AD-WIN10-01 |
-| N3-7 | Request access to SupportShare |
-| N3-8 | Cannot sign in after password reset |
-| N3-9 | Domain name lookup fails on AD-WIN10-01 |
-| N3-10 | Request Remote Desktop access for support |
+| Ticket | Summary                                                     |
+| ------ | ----------------------------------------------------------- |
+| N3-1   | Cannot sign in on AD-WIN10-01                               |
+| N3-2   | Cannot access shared folder from AD-WIN10-01                |
+| N3-3   | Remote Desktop connection fails to AD-WIN10-01              |
+| N3-4   | Account keeps locking after sign-in attempts                |
+| N3-5   | Cannot reach AD-SRV01 domain resources from AD-WIN10-01     |
+| N3-6   | Expected desktop policy missing on AD-WIN10-01              |
+| N3-7   | Request access to SupportShare                              |
+| N3-8   | Cannot sign in after password reset                         |
+| N3-9   | Domain name lookup fails on AD-WIN10-01                     |
+| N3-10  | Request Remote Desktop access for support                   |
 
 ## Knowledge Base
 
@@ -65,32 +65,14 @@ Knowledge base articles are created from resolved tickets where the fix pattern 
 
 ## Repository Layout
 
-| Path | Purpose |
-| ---- | ------- |
-| `lab/` | Main lab reports. |
-| `tickets/` | Individual ticket records and technical case notes. |
-| `kb/` | Reusable knowledge base handover articles. |
-| `screenshots/lab/` | Evidence screenshots for lab reports. |
-| `screenshots/tickets/` | Evidence screenshots for individual ticket investigations. |
-| `screenshots/kb/` | Evidence screenshots for KB handover where needed. |
-
-## Current Status
-
-The service desk setup and live queue simulation are in progress.
-
-Completed setup areas include:
-
-| Area | Status |
-| ---- | ------ |
-| Jira service space | Complete |
-| Request types | Complete |
-| Queues | Complete |
-| SLA goals | Complete |
-| Customer account records | Complete |
-| Live queue simulation | Complete |
-| Ticket investigations | In progress |
-| Knowledge base handover | Pending |
-| Dashboard review | Pending |
+| Path                  | Purpose                                                   |
+| --------------------- | --------------------------------------------------------- |
+| `lab/`                | Main lab reports.                                         |
+| `tickets/`            | Individual ticket records and technical case notes.       |
+| `kb/`                 | Reusable knowledge base handover articles.                |
+| `screenshots/lab/`    | Evidence screenshots for lab reports.                     |
+| `screenshots/tickets/`| Evidence screenshots for individual ticket investigations.|
+| `screenshots/kb/`     | Evidence screenshots for KB handover where needed.        |
 
 ## Start Here
 
