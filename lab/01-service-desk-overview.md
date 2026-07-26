@@ -8,30 +8,30 @@ This page defines the operating model for the ticket run: how requests enter Jir
 
 Tickets start as customer-style portal requests. The submitted description records what the requester reports before investigation begins.
 
-| Intake Field                                      | Use                                                       |
-| ------------------------------------------------- | --------------------------------------------------------- |
-| Affected user                                     | Identifies the person reporting or affected by the issue. |
-| [ADBox](https://github.com/erwinmagielda/adbox) username | Links the ticket to the domain account being checked.     |
-| UPN                                               | Records the email-style domain identity.                  |
-| Workstation                                       | Identifies the affected endpoint.                         |
-| Target resource                                   | Records the device, share, service, policy, or access target. |
-| Issue                                             | Captures the user-facing problem.                         |
-| Error message                                     | Records the visible error or reported failure.            |
-| Started                                           | Records when the user noticed the issue.                  |
-| Notes                                             | Adds user context, uncertainty, or extra detail.          |
+| Intake Field                                             | Use                                                              |
+| -------------------------------------------------------- | ---------------------------------------------------------------- |
+| Affected user                                            | Identifies the person reporting or affected by the issue.        |
+| [ADBox](https://github.com/erwinmagielda/adbox) username | Links the ticket to the domain account being checked.            |
+| UPN                                                      | Records the email-style domain identity.                         |
+| Workstation                                              | Identifies the affected endpoint.                                |
+| Target resource                                          | Records the device, share, service, policy, or access target.    |
+| Issue                                                    | Captures the user-facing problem.                                |
+| Error message                                            | Records the visible error or reported failure.                   |
+| Started                                                  | Records when the user noticed the issue.                         |
+| Notes                                                    | Adds user context, uncertainty, or extra detail.                 |
 
 ## Triage Model
 
 Triage decides the ticket priority, queue placement, owner, and next action.
 
-| Triage Field | Use                                                            |
-| ------------ | -------------------------------------------------------------- |
+| Triage Field | Use                                                                |
+| ------------ | ------------------------------------------------------------------ |
 | Impact       | What user, workstation, account, service, or resource is affected. |
-| Urgency      | How quickly the issue needs action.                            |
-| Priority     | The working importance assigned from impact and urgency.       |
-| Queue        | The Jira view where the ticket should be worked.               |
-| Owner        | The person responsible for the next action.                    |
-| Status       | The current state of the ticket.                               |
+| Urgency      | How quickly the issue needs action.                                |
+| Priority     | The working importance assigned from impact and urgency.           |
+| Queue        | The Jira view where the ticket should be worked.                   |
+| Owner        | The person responsible for the next action.                        |
+| Status       | The current state of the ticket.                                   |
 
 ## Priority Model
 
@@ -57,12 +57,12 @@ Jira priority labels map into the N3 working model.
 
 The queue shows what needs triage, what is active, what is waiting, and what has been resolved.
 
-| Queue State | Meaning                                          |
-| ----------- | ------------------------------------------------ |
-| New         | Ticket has arrived and needs triage.             |
-| To Do       | Ticket has been triaged and is waiting for work. |
-| In Progress | Ticket is being actively worked.                 |
-| Pending     | User reply or confirmation is needed.            |
+| Queue State | Meaning                                           |
+| ----------- | ------------------------------------------------- |
+| New         | Ticket has arrived and needs triage.              |
+| To Do       | Ticket has been triaged and is waiting for work.  |
+| In Progress | Ticket is being actively worked.                  |
+| Pending     | User reply or confirmation is needed.             |
 | Done        | Fix or fulfilment has been applied and confirmed. |
 
 The main queue views separate active work by status, priority, and request type.
@@ -82,37 +82,37 @@ The main queue views separate active work by status, priority, and request type.
 
 Each ticket follows the same path from portal intake to closure.
 
-| Stage          | Action                                                              |
-| -------------- | ------------------------------------------------------------------- |
-| Intake         | User symptom, affected device, affected account, and impact logged. |
-| Triage         | Request type, category, urgency, impact, and priority assigned.     |
-| Placement      | Ticket enters the correct working queue.                            |
+| Stage          | Action                                                                                                                |
+| -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Intake         | User symptom, affected device, affected account, and impact logged.                                                   |
+| Triage         | Request type, category, urgency, impact, and priority assigned.                                                       |
+| Placement      | Ticket enters the correct working queue.                                                                              |
 | Investigation  | [ADBox](https://github.com/erwinmagielda/adbox) checks performed on the client, server, account, policy, or resource. |
-| Finding        | Confirmed cause or support finding recorded.                        |
-| Resolution     | Primary fix applied through the most suitable support method.       |
-| Validation     | PowerShell, client-side checks, or resource access confirm the result. |
-| Update         | Internal note and customer-facing reply added to Jira.              |
-| Closure        | Ticket moved to Done after the fix and communication are complete.  |
-| Knowledge Base | Repeatable checks moved into a KB article where useful.             |
+| Finding        | Confirmed cause or support finding recorded.                                                                          |
+| Resolution     | Primary fix applied through the most suitable support method.                                                         |
+| Validation     | PowerShell, client-side checks, or resource access confirm the result.                                                |
+| Update         | Internal note and customer-facing reply added to Jira.                                                                |
+| Closure        | Ticket moved to Done after the fix and communication are complete.                                                    |
+| Knowledge Base | Repeatable checks moved into a KB article where useful.                                                               |
 
 ## Ticket Structure
 
 Ticket records document the technical side of each case.
 
-| Section               | Purpose                                                        |
-| --------------------- | -------------------------------------------------------------- |
-| Ticket Summary        | Captures the Jira key, requester, account, device, and status. |
-| Reported Issue        | Records the customer-submitted problem.                        |
-| Triage                | Explains priority, queue placement, and handling decision.     |
+| Section               | Purpose                                                                                       |
+| --------------------- | --------------------------------------------------------------------------------------------- |
+| Ticket Summary        | Captures the Jira key, requester, account, device, and status.                                |
+| Reported Issue        | Records the customer-submitted problem.                                                       |
+| Triage                | Explains priority, queue placement, and handling decision.                                    |
 | Investigation         | Shows the technical checks performed against [ADBox](https://github.com/erwinmagielda/adbox). |
-| Finding               | Summarises the confirmed cause or support finding.             |
-| Resolution Applied    | Records the primary fix used.                                  |
-| PowerShell Validation | Confirms the technical state from the command line.            |
-| Client Validation     | Proves the user-facing issue is resolved.                      |
-| Alternative Methods   | Documents other valid admin methods for the same task.         |
-| Jira Notes            | Shows internal handover and customer-facing communication.     |
-| Closure               | Confirms final Jira status and SLA completion where visible.   |
-| Result                | Summarises the case outcome.                                   |
+| Finding               | Summarises the confirmed cause or support finding.                                            |
+| Resolution Applied    | Records the primary fix used.                                                                 |
+| PowerShell Validation | Confirms the technical state from the command line.                                           |
+| Client Validation     | Proves the user-facing issue is resolved.                                                     |
+| Alternative Methods   | Documents other valid admin methods for the same task.                                        |
+| Jira Notes            | Shows internal handover and customer-facing communication.                                    |
+| Closure               | Confirms final Jira status and SLA completion where visible.                                  |
+| Result                | Summarises the case outcome.                                                                  |
 
 The primary fix is usually performed through the GUI when that matches first-line support behaviour. PowerShell validation is used where it adds clear technical proof. PowerShell fix commands are documented under Alternative Methods when useful for repeatable administration.
 
@@ -120,12 +120,12 @@ The primary fix is usually performed through the GUI when that matches first-lin
 
 The ticket set runs as one service desk session, with new work arriving while other tickets are already active.
 
-| Wave | Queue Event                                             | Ticket Range |
-| ---- | ------------------------------------------------------- | ------------ |
-| 1    | First issue arrives and is triaged into active work.    | N3-1         |
-| 2    | Three more issues arrive while N3-1 is already active.  | N3-2 to N3-4 |
-| 3    | Higher-impact domain resource issue enters the queue.   | N3-5         |
-| 4    | Two more medium-priority tickets enter the queue.       | N3-6 to N3-7 |
+| Wave | Queue Event                                             | Ticket Range  |
+| ---- | ------------------------------------------------------- | ------------- |
+| 1    | First issue arrives and is triaged into active work.    | N3-1          |
+| 2    | Three more issues arrive while N3-1 is already active.  | N3-2 to N3-4  |
+| 3    | Higher-impact domain resource issue enters the queue.   | N3-5          |
+| 4    | Two more medium-priority tickets enter the queue.       | N3-6 to N3-7  |
 | 5    | Final access and technical cases enter the queue.       | N3-8 to N3-10 |
 
 ## Ticket Set
@@ -165,6 +165,6 @@ Lab reports use wider workflow evidence. Ticket records use focused support-case
 
 ## Navigation
 
-| Previous                       | Current                  | Next                                      |
-| ------------------------------ | ------------------------ | ----------------------------------------- |
+| Previous                       | Current                  | Next                                          |
+| ------------------------------ | ------------------------ | --------------------------------------------- |
 | [Project README](../README.md) | 01 Service Desk Overview | [02 Jira Cloud Setup](02-jira-cloud-setup.md) |
