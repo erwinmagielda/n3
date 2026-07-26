@@ -187,7 +187,7 @@ The fourth wave added two more tickets after the queue already contained active,
 | Ticket | Summary                                        | Reporter                   | Request Type                  |
 | ------ | ---------------------------------------------- | -------------------------- | ----------------------------- |
 | N3-6   | Expected desktop policy missing on AD-WIN10-01 | `sam.taylor@adbox.local`   | Workstation or policy issue   |
-| N3-7   | Request access to SupportShare                 | `alex.morgan@adbox.local`  | Access request                |
+| N3-7   | Request access to Support                      | `alex.morgan@adbox.local`  | Access request                |
 
 Figure 7.21 shows both tickets entering `New and untriaged`.
 
