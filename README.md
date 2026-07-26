@@ -14,17 +14,17 @@ ADBox provides the domain controller, domain users, workstation, DNS path, share
 
 ## Lab Reports
 
-| Report | Area | Description |
-| ------ | ---- | ----------- |
-| [01 Service Desk Overview](lab/01-service-desk-overview.md) | Operating model | Defines the N3 workflow, ticket lifecycle, priority model, and evidence rules. |
-| [02 Jira Cloud Setup](lab/02-jira-cloud-setup.md) | Jira setup | Creates the Jira Service Management space used for the lab. |
-| [03 Request Type Forms](lab/03-request-type-forms.md) | Request intake | Configures the request types used to raise support tickets. |
-| [04 Queue Priority Model](lab/04-queue-priority-model.md) | Queues | Builds the working queues used for triage, priority handling, and category routing. |
-| [05 SLA Field Setup](lab/05-sla-field-setup.md) | SLAs | Configures first response and completion targets. |
-| [06 Customer Account Records](lab/06-customer-account-records.md) | Customers | Adds Jira customer records matching enabled ADBox users. |
-| [07 Live Queue Simulation](lab/07-live-queue-simulation.md) | Queue run | Runs the staged ten-ticket service desk simulation. |
-| [08 Knowledge Base Handover](lab/08-knowledge-base-handover.md) | KB handover | Documents how resolved ticket patterns become reusable support notes. |
-| [09 Dashboard Status Review](lab/09-dashboard-status-review.md) | Dashboard review | Reviews the Jira dashboard and final service desk state after selected resolutions. |
+| Report                                                             | Area             | Description                                                                         |
+| ------------------------------------------------------------------ | ---------------- | ----------------------------------------------------------------------------------- |
+| [01 Service Desk Overview](lab/01-service-desk-overview.md)        | Operating Model  | Defines the N3 workflow, ticket lifecycle, priority model, and evidence rules.      |
+| [02 Jira Cloud Setup](lab/02-jira-cloud-setup.md)                  | Jira Setup       | Creates the Jira Service Management space used for the lab.                         |
+| [03 Request Type Forms](lab/03-request-type-forms.md)              | Request Intake   | Configures the request types used to raise support tickets.                         |
+| [04 Queue Priority Model](lab/04-queue-priority-model.md)          | Queues           | Builds the working queues used for triage, priority handling, and category routing. |
+| [05 SLA Field Setup](lab/05-sla-field-setup.md)                    | SLAs             | Configures first response and completion targets.                                   |
+| [06 Customer Account Records](lab/06-customer-account-records.md)  | Customers        | Adds Jira customer records matching enabled ADBox users.                            |
+| [07 Live Queue Simulation](lab/07-live-queue-simulation.md)        | Queue Run        | Runs the staged ten-ticket service desk simulation.                                 |
+| [08 Knowledge Base Handover](lab/08-knowledge-base-handover.md)    | KB Handover      | Documents how resolved ticket patterns become reusable support notes.               |
+| [09 Dashboard Status Review](lab/09-dashboard-status-review.md)    | Dashboard Review | Reviews the Jira dashboard and final service desk state after selected resolutions. |
 
 ## Ticket Records
 
